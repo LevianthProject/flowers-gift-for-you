@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question and Answer</title>
+    <link rel="stylesheet" href="styleGlobal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="question-container">
+        <p id="question">Hey, how are you today?</p>
+        <div class="col-button">
+            <button class="button--wayra button" onclick="handleAnswer('good')">Good</button>
+            <button class="button--wayra button" onclick="handleAnswer('bad')">Bad</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h5>By: Levianth ❤️</h5>
+        <h5>For my Lovely Babe ❤️ </h5>
+    </div>
+
+
+    <script>
+        let currentQuestion = 1;
+
+        function handleAnswer(answer) {
+            const questionContainer = document.getElementById("question-container");
+
+            switch (currentQuestion) {
+                case 1:
+                    if (answer === 'bad') {
+                        questionContainer.innerHTML = `
+                            <p id="question">Okay it’s fine, Hope your day will be fine!</p>
+                        `;
+                        break;
+                    }
+                    questionContainer.innerHTML = `
+                        <p id="question">Tired day right?</p>
+                        <div class="col-button">
+                        <button class="button--wayra button" onclick="handleAnswer('tiredYea')">Yea</button>
+                        <button class="button--wayra button" onclick="handleAnswer('tiredNope')">Nope</button>
+                        </div>
+                    `;
+                    break;
+                case 2:
+                    questionContainer.innerHTML = `
+                        <p id="question">But do you know something that makes you happy?</p>
+                        <div class="col-button">
+                        <button class="button--wayra button" onclick="handleAnswer('whatsIt')">What’s it?</button>
+                        <button class="button--wayra button" onclick="handleAnswer('nope')">Nope</button>
+                        </div>
+                    `;
+                    break;
+                case 3:
+                    questionContainer.innerHTML = `
+                        <p id="question">Life is like a Flowers and do you know why?</p>
+                        <div class="col-button">
+                        <button class="button--wayra button" onclick="handleAnswer('why')">Why?</button>
+                        <button class="button--wayra button" onclick="handleAnswer('nope')">Nope</button>
+                        <div>
+                    `;
+                    break;
+                case 4:
+                    questionContainer.innerHTML = `
+                        <p id="question">"Because it grows into something beautiful <br> So too do you become truly beautiful than the flowers it is."</p>
+                        <button class="button--wayra button" onclick="handleAnswer('thanks')">Thanks!</button>
+                    `;
+                    break;
+                case 5:
+                    questionContainer.innerHTML = `
+                        <p id="question">And you want to know how your flower looks? <br> It is so beauty like you ❤️</p>
+                        <a href="flowers.html"> <button class="button--wayra button" onclick="handleAnswer('andYouWantTo')">Yes!</button> </a>
+                    `;
+                    break;
+                default:
+                    if (answer === 'tiredNope') {
+                        questionContainer.innerHTML = `
+                            <p id="question">Okay it’s fine, Hope your day will be fine!</p>
+                        `;
+                        break;
+                    } else if (answer === 'tiredYea') {
+                        currentQuestion = 1;
+                    }
+                    break;
+            }
+
+            currentQuestion++;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
